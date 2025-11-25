@@ -1,0 +1,53 @@
+/* styles.css or home.component.css */
+
+/* Background gradient for the section */
+.container-fluid {
+    background: linear-gradient(135deg, #f8f9f9 0%, #cfe8fc 100%);
+}
+
+/* Text styling */
+h1.display-4 {
+    color: #1a3f6f; /* dark blue */
+    margin-bottom: 20px;
+}
+
+.lead {
+    font-size: 1.2rem;
+    color: #2c3e50;
+}
+
+/* Paragraph spacing */
+p {
+    line-height: 1.6;
+}
+
+/* Button style */
+.btn-primary {
+    background-color: #2f709f;
+    border-color: #2f709f;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1f4d6f;
+    transform: scale(1.05);
+}
+
+/* Image styling */
+.img-fluid {
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive tweaks */
+@media (max-width: 991px) {
+    .container-fluid {
+        padding: 3rem 1rem;
+    }
+    h1.display-4 {
+        font-size: 2.2rem;
+    }
+    .lead {
+        font-size: 1rem;
+    }
+}
