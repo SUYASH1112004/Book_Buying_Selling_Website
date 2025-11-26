@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { APIServiceService } from '../apiservice.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { CartService } from '../cart.service';
 
 @Component({
   selector: 'app-buying',
@@ -15,7 +16,7 @@ export class BuyingComponent implements OnInit{
     books : any[] =[];
     Search : string ='';
 
-    constructor(private api : APIServiceService){}
+    constructor(private api : APIServiceService,private cart : CartService){}
 
     ngOnInit(): void {
         this.api.Buying().subscribe(
@@ -24,6 +25,13 @@ export class BuyingComponent implements OnInit{
           },
           err => console.log(err)
         );
+    }
+
+
+    addtoCart(book : any)
+    {
+      this.cart.addToCart(book);
+      alert('Book added to cart')
     }
 
 
