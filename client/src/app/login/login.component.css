@@ -1,0 +1,52 @@
+/* Center the form on screen */
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  background: #f2d1d1;
+  padding: 20px;
+}
+
+/* Card style */
+.login-card {
+  background: white;
+  padding: 30px 25px;
+  border-radius: 12px;
+  max-width: 400px;
+  width: 100%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+/* Heading style */
+.login-card h2 {
+  color: #3c3c3c;
+  font-weight: 600;
+}
+
+/* Input focus style */
+.login-card input.form-control:focus {
+  border-color: #3c8dbc;
+  box-shadow: 0 0 5px rgba(60, 141, 188, 0.5);
+}
+
+/* Buttons */
+.login-card .btn-primary {
+  background-color: #3c8dbc;
+  border-color: #3c8dbc;
+}
+
+.login-card .btn-primary:hover {
+  background-color: #337ab7;
+  border-color: #2e6da4;
+}
+
+.login-card .btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+}
+
+.login-card .btn-secondary:hover {
+  background-color: #5a6268;
+  border-color: #545b62;
+}

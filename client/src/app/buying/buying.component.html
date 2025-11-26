@@ -1,0 +1,28 @@
+<div class="container my-4">
+  <h2 class="mb-3">Search Books</h2>
+
+  <!-- Search Input -->
+  <div class="input-group mb-4">
+    <input 
+      type="text" 
+      class="form-control" 
+      placeholder="Search by title or author..." 
+      [(ngModel)]="Search"
+      (input)="filterbooks()">
+    <button class="btn btn-primary" type="button" (click)="filterbooks()">Search</button>
+  </div>
+
+  <!-- Book Cards -->
+  <div class="row">
+    <div class="col-md-4 mb-4" *ngFor="let book of Data">
+      <div class="card h-100 shadow">
+        <img [src]="book.url" class="card-img-top" alt="Book Image" style="height: 200px; object-fit: cover;">
+        <div class="card-body">
+          <h5 class="card-title">{{ book.title }}</h5>
+          <p class="card-text">{{ book.description }}</p>
+          <a href="#" class="btn btn-primary w-100">Buy Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

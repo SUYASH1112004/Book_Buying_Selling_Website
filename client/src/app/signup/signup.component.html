@@ -1,0 +1,31 @@
+<div class="login-container">
+  <div class="login-card shadow">
+    <h2 class="text-center mb-4">Signup to BookStore</h2>
+    
+    <form>
+      <div class="mb-3">
+        <label class="form-label">Email address</label>
+        <input 
+          type="email" 
+          class="form-control" 
+          id="EmailInput" 
+          name="email"
+          [(ngModel)]="Data.Email"
+          aria-describedby="emailHelp">
+        <div id="emailHelp" class="form-text">We'll never share your email.</div>
+      </div>
+
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input 
+          type="password" 
+          class="form-control" 
+          id="Password" 
+          name="password"
+          [(ngModel)]="Data.Password">
+      </div>
+
+      <button type="submit" class="btn btn-primary w-100 mb-2" (click)="SignUpCheck()">Signup</button>
+    </form>
+  </div>
+</div>
