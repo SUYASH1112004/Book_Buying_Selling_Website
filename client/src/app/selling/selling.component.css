@@ -1,0 +1,15 @@
+.card {
+  border-radius: 15px;
+}
+
+h2 {
+  font-weight: 600;
+}
+
+input, textarea {
+  border-radius: 8px;
+}
+
+button {
+  border-radius: 30px;
+}

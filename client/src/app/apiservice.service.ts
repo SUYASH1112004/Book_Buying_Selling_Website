@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { Environment } from './Environment';
 import { Observable, ObservableInput } from 'rxjs';
 import { Transfer } from './Transfer';
+import { SellingModel } from './SellingModel';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,7 @@ export class APIServiceService {
   private _LoginURL = `${Environment.API_URL}/Login`;
   private _SignupURL =`${Environment.API_URL}/Signup`;
   private _BuyURL = `${Environment.API_URL}/Buying`;
+  private _SellingURL = `${Environment.API_URL}/Selling`;
   
 
   getCards() : Observable<any[]>
@@ -38,4 +40,9 @@ export class APIServiceService {
     return this.Http.get<any[]>(this._BuyURL);
   }
 
+
+  Selling(data : SellingModel)
+  {
+    return this.Http.post<any[]>(this._SellingURL,data);
+  }
 }
