@@ -3,11 +3,12 @@ import { APIServiceService } from '../apiservice.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { CartService } from '../cart.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-buying',
   standalone: true,
-  imports: [CommonModule,FormsModule],
+  imports: [CommonModule,FormsModule,RouterLink],
   templateUrl: './buying.component.html',
   styleUrl: './buying.component.css'
 })
@@ -19,7 +20,7 @@ export class BuyingComponent implements OnInit{
     constructor(private api : APIServiceService,private cart : CartService){}
 
     ngOnInit(): void {
-        this.api.Buying().subscribe(
+        this.api.BuyingData().subscribe(
           (res : any[])=>{
             this.Data=res;
           },
@@ -32,6 +33,19 @@ export class BuyingComponent implements OnInit{
     {
       this.cart.addToCart(book);
       alert('Book added to cart')
+    }
+
+    buyNow(book : any)
+    {
+      this.api.BuyNowService(book._id).subscribe({
+        next:(res)=>{
+          alert("Order Placed Successfully");
+        },
+      error : (err)=>{
+          alert("Failed to place order ");
+          console.log(err);
+      }
+    });
     }
 
 

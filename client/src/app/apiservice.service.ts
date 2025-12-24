@@ -14,10 +14,11 @@ export class APIServiceService {
   constructor(private Http : HttpClient) { }
 
   private _cardURL = `${Environment.API_URL}/cards`;
-  private _LoginURL = `${Environment.API_URL}/Login`;
-  private _SignupURL =`${Environment.API_URL}/Signup`;
-  private _BuyURL = `${Environment.API_URL}/Buying`;
-  private _SellingURL = `${Environment.API_URL}/Selling`;
+  private _LoginURL = `${Environment.API_URL}/login`;
+  private _SignupURL =`${Environment.API_URL}/signup`;
+  private _BuyURL = `${Environment.API_URL}/buying`;
+  private _SellingURL = `${Environment.API_URL}/selling`;
+  private _buyNow=`${Environment.API_URL}/buynow`;
   
 
   getCards() : Observable<any[]>
@@ -35,11 +36,15 @@ export class APIServiceService {
     return this.Http.post<any>(this._SignupURL,data);
   }
 
-  Buying():Observable<any[]>
+  BuyingData():Observable<any[]>
   {
     return this.Http.get<any[]>(this._BuyURL);
   }
 
+  BuyNowService(id :String)
+  {
+    return this.Http.post<any>(this._buyNow,id);
+  }
 
   Selling(data : SellingModel)
   {

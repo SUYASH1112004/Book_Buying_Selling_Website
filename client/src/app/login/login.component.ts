@@ -14,7 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 })
 export class LoginComponent {
 
-  LoginData = {Email:'',Password:''};
+  LoginData = {Email:'',Password:'',Address : '',Phone:''};
   constructor(private route : Router,private api : APIServiceService){}
   
   private obj : Transfer = new Transfer();
@@ -23,6 +23,7 @@ export class LoginComponent {
   {
     this.obj.Email=this.LoginData.Email;
     this.obj.Password=this.LoginData.Password;
+  
 
     this.api.LoginCheck(this.obj).subscribe(
       (res : any)=>{

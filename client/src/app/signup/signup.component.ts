@@ -19,13 +19,16 @@ export class SignupComponent {
 
     obj : Transfer = new Transfer();
 
-    Data = {Email :'',Password:''};
+    Data = {Email :'',Password:'',Phone:'',Address:''};
 
 
     SignUpCheck()
     {
       this.obj.Email=this.Data.Email;
       this.obj.Password=this.Data.Password;
+      this.obj.Address=this.Data.Address;
+      this.obj.phone=this.Data.Phone;
+
       this.api.SignUP(this.obj).subscribe(
         (res:any)=>{
           console.log("Signup Successfull");
