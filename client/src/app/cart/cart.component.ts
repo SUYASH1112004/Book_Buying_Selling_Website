@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
+import { Cardtdto } from '../home/CardDto';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +16,7 @@ export class CartComponent implements OnInit{
   cartItems : any[] =[];
   total = 0;
 
-  constructor(private cart : CartService){}
+  constructor(private cart : CartService ){}
 
   ngOnInit(): void {
     this.cart.cart$.subscribe(

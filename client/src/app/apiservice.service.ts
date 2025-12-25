@@ -5,6 +5,7 @@ import { Environment } from './Environment';
 import { Observable, ObservableInput } from 'rxjs';
 import { Transfer } from './Transfer';
 import { SellingModel } from './SellingModel';
+import { Cardtdto } from './home/CardDto';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,7 @@ export class APIServiceService {
 
   getCards() : Observable<any[]>
   {
-    return this.Http.get<any[]>(this._cardURL);
+    return this.Http.get<Cardtdto[]>(this._cardURL);
   }
 
   LoginCheck(data : Transfer)
