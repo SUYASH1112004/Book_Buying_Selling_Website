@@ -7,6 +7,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Transfer {
+
+    private String Id;
     private String email;
     private String password;
     private String phone;

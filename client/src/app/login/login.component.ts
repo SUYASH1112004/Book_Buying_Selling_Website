@@ -27,9 +27,10 @@ export class LoginComponent {
 
     this.api.LoginCheck(this.obj).subscribe(
       (res : any)=>{
+        localStorage.setItem('token',res.token);
         console.log("Login Successfull",res);
         alert("Login Successfull");
-        this.route.navigate(['/Home']); 
+        this.route.navigate(['/home']); 
          
       },
       (err: any )=>

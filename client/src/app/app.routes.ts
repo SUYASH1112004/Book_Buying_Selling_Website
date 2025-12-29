@@ -18,28 +18,28 @@ export const routes: Routes = [
         component:HomeComponent
     },
     {
-        path:'Home',
+        path:'home',
         component:HomeComponent
     },
     {
-        path:'Login',
+        path:'login',
         component:LoginComponent
     },
     {
-        path:'Signup',
+        path:'signup',
         component : SignupComponent
         
     },
     {
-        path:'Buying',
+        path:'buying',
         component:BuyingComponent
     },
     {
-        path:'Cart',
+        path:'cart',
         component : CartComponent
     },
     {
-        path :'Selling',
+        path :'selling',
         component : SellingComponent
     }
 ];
