@@ -8,6 +8,7 @@ import BookStore.Backend.Server.Service.BusinessLogic;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -61,6 +62,24 @@ public class APIController {
                 return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
                         .body("Invalid Email or Password");
         }
+    }
+
+    @GetMapping("/buying")
+    public ResponseEntity<List<BookCardDto>> BuyingDataReq()
+    {
+        return new ResponseEntity<>(service.getAllBooks(),HttpStatus.OK);
+    }
+
+    @PostMapping("/buynow")
+    public ResponseEntity<?> buyingnow(@RequestBody String bookId)
+    {
+        String email = SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
+        service.BuyingNow(bookId,email);
+
+        return ResponseEntity.ok("Order Placed Successfully");
     }
 
 

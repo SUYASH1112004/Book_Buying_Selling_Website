@@ -3,7 +3,10 @@ package BookStore.Backend.Server.Service;
 import BookStore.Backend.Server.DTO.BookCardDto;
 import BookStore.Backend.Server.DTO.LoginTransfer;
 import BookStore.Backend.Server.DTO.Transfer;
+import BookStore.Backend.Server.Entity.Book;
+import BookStore.Backend.Server.Entity.Orders;
 import BookStore.Backend.Server.Entity.User;
+import BookStore.Backend.Server.Repository.OrderRepo;
 import BookStore.Backend.Server.Repository.bookRepo;
 import BookStore.Backend.Server.Repository.userRepo;
 import BookStore.Backend.Server.SecurityConfigurations.JwtUtil;
@@ -11,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,6 +31,9 @@ public class BusinessLogic {
 
     @Autowired
     private userRepo obj2;
+
+    @Autowired
+    private OrderRepo orderobj;
 
     @Autowired
     private JwtUtil jwtutil;
@@ -80,6 +87,28 @@ public class BusinessLogic {
         }
         return jwtutil.generateToken(user.get().getId());
     }
+
+    public void BuyingNow(String BookId,String email)
+    {
+        User user = obj2.findByEmail(email).
+                orElseThrow(()->new RuntimeException("User Not Found"));
+
+        Book book = obj.findById(BookId)
+                .orElseThrow(()->new RuntimeException("Book not found"));
+
+        Orders order = new Orders();
+        order.setOrderTime(new Date());
+        order.setBookId(book.getId());
+        order.setPrice(book.getPrice());
+        order.setUserId(user.getId());
+        order.setBookTitle(book.getTitle());
+        order.setStatus("Placed");
+        orderobj.save(order);
+
+    }
+
+
+
 
 
 }

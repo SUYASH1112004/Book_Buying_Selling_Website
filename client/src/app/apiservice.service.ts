@@ -5,7 +5,7 @@ import { Environment } from './Environment';
 import { Observable, ObservableInput } from 'rxjs';
 import { Transfer } from './Transfer';
 import { SellingModel } from './SellingModel';
-import { Cardtdto } from './home/CardDto';
+import { Cardtdto } from './CardDto';
 
 @Injectable({
   providedIn: 'root'

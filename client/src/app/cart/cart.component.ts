@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../cart.service';
-import { Cardtdto } from '../home/CardDto';
+import { Cardtdto } from '../CardDto';
 
 @Component({
   selector: 'app-cart',
