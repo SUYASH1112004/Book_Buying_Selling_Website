@@ -1,6 +1,7 @@
 package BookStore.Backend.Server.Controller;
 
 import BookStore.Backend.Server.DTO.BookCardDto;
+import BookStore.Backend.Server.DTO.BookSellingDto;
 import BookStore.Backend.Server.DTO.LoginTransfer;
 import BookStore.Backend.Server.DTO.Transfer;
 import BookStore.Backend.Server.SecurityConfigurations.JwtUtil;
@@ -80,6 +81,19 @@ public class APIController {
         service.BuyingNow(bookId,email);
 
         return ResponseEntity.ok("Order Placed Successfully");
+    }
+
+    @PostMapping("/selling")
+    public ResponseEntity<?> sellingControl(@RequestBody BookSellingDto dto)
+    {
+        String email =SecurityContextHolder
+                .getContext()
+                .getAuthentication()
+                .getName();
+
+        service.Selling(dto,email);
+
+        return ResponseEntity.ok("Book Listed For Sale");
     }
 
 

@@ -1,6 +1,7 @@
 package BookStore.Backend.Server.Service;
 
 import BookStore.Backend.Server.DTO.BookCardDto;
+import BookStore.Backend.Server.DTO.BookSellingDto;
 import BookStore.Backend.Server.DTO.LoginTransfer;
 import BookStore.Backend.Server.DTO.Transfer;
 import BookStore.Backend.Server.Entity.Book;
@@ -104,6 +105,22 @@ public class BusinessLogic {
         order.setBookTitle(book.getTitle());
         order.setStatus("Placed");
         orderobj.save(order);
+
+    }
+
+
+
+    public void Selling(BookSellingDto dto,String email)
+    {
+        Book objbook = new Book();
+        objbook.setDescription(dto.getDescription());
+        objbook.setTitle(dto.getTitle());
+        objbook.setUrl(dto.getUrl());
+        objbook.setPrice(dto.getPrice());
+        objbook.setSold(false);
+        objbook.setSellerEmail(email);
+
+        obj.save(objbook);
 
     }
 

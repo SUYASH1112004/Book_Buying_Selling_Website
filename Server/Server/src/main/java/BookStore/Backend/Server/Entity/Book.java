@@ -18,5 +18,8 @@ public class Book {
     private String description;
     private String url;
     private double price;
+    private String sellerEmail;
+    private boolean sold= false;
+
 
 }
